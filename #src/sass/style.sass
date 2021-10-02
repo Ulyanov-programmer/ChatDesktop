@@ -1,0 +1,184 @@
+$mainFontFamily: Lato
+$mainFontColor: #000
+$mainFontSize: 13
+$background: #fff
+
+@import "nullStyle"
+@import "mixins"
+@import "chat"
+@import "fonts"
+@import "iconFonts"
+
+body
+    height: 100%
+    color: $mainFontColor
+    font-family: $mainFontFamily
+    font-size: $mainFontSize + px
+
+    &.fixed
+        overflow: hidden
+
+    button
+        color: #fff
+
+.main
+    width: 100%
+
+    background: $background
+
+    &__body
+        flex: 1 0 100%
+        height: 100vh
+        display: flex
+        background: $background
+
+.navigation
+    background: #000000
+    min-width: 350px
+    width: 350px
+    
+    color: #B5B5B5
+    button
+        color: #B5B5B5
+
+    &__body
+        display: flex
+        height: 100%
+
+.chats
+    display: flex
+    flex-flow: column wrap
+    align-items: center
+    justify-content: space-between
+    padding: 15px 0px 15px 0px
+
+    &__body
+        padding: 15px 15px 5px 15px
+
+    &__chat-ref
+        padding: 15px 0px 15px 0px
+        img
+            border-radius: 50%
+            filter: brightness(80%)
+
+        &.active
+            position: relative
+            ::before
+                position: absolute
+                top: 50%
+                transform: translate(0,-50%)
+                left: -18px
+                content: ''
+                width: 7px
+                height: 7px
+
+                background: gray
+                border-radius: 50%
+            img
+                @include size (40px,40px)
+                filter: brightness(100%)
+
+    &__add-chat
+        @include size (41.5px,41.5px)
+        background: #3b3b3b
+        border-radius: 50%
+        position: relative
+
+        &:before
+            position: absolute
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            color: #c2c2c2
+
+.general-nav
+    flex: 1 0 auto
+    background: #25272A
+
+    &__body
+        padding: 35px 25px 35px 25px
+
+    &__block
+        padding: 0px 0px 15px 0px
+        &:last-child
+            padding-bottom: 0
+
+    &__title
+        text-transform: uppercase
+        display: flex
+        justify-content: space-between
+
+    &__settings
+        &::before
+            font-size: 16px
+
+.chat-users
+    &__info
+        color: #fff
+
+    .chat-user
+        display: none
+
+.threads-menu
+    display: flex
+    justify-content: center
+    align-items: center
+
+    font-size: 14px
+    &::before
+        padding: 0px 10px 0px 0px
+        font-size: 18px
+
+.nav-list
+
+    &__info
+
+    &__elem
+        text-transform: none
+
+.channels
+
+    .channel
+
+.friends
+
+    .friend
+
+.profile
+    position: absolute
+    left: 10%
+    top: 0
+    @include size (50px, 100%)
+
+    &__body
+        display: flex
+        justify-content: center
+        align-items: center
+        @include size (50px, 100%)
+
+    &__list
+        flex-flow: column nowrap
+
+.modal-window
+    position: fixed
+    z-index: 15
+    top: 0
+    left: 0
+    background: #00000046
+    @include size (100%,100%)
+
+    overflow: hidden
+    opacity: 0
+    pointer-events: none
+    transition: all 0.5s ease
+
+    &.active
+        overflow-y: scroll
+        opacity: 1
+        pointer-events: all
+
+    &__body
+        display: flex
+        height: 100%
+        justify-content: center
+        align-items: center

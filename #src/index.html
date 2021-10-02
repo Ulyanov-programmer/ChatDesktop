@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+@@include('_head.html', {
+"title": "Chat Desktop"
+})
+
+<body>
+
+    <main class="main">
+        <div class="main__body">
+            <section class='navigation'>
+                <div class='navigation__body'>
+                    <div class="chats">
+                        <div class="chats__body">
+                            <div class='chats__chat-ref active'>
+                                <img src="img/chat1.jpg" alt='chat1'>
+                            </div>
+                            <div class='chats__chat-ref'>
+                                <img src="img/chat2.jpg" alt='chat2'>
+                            </div>
+                        </div>
+                        <button class="chats__add-chat _icon-createChat" aria-label='addChat' type='button'>
+                        </button>
+                    </div>
+                    <div class="general-nav">
+                        <div class="general-nav__body">
+                            <div class="general-nav__block">
+                                <ul class="chat-users">
+                                    <span class="chat-users__info">Nomad List</span>
+                                    <li class="chat-user">user1</li>
+                                    <li class="chat-user">user2</li>
+                                    <li class="chat-user">user3</li>
+                                </ul>
+                                <button class="general-nav__settings _icon-settings" aria-label='general-settings'
+                                    type='menu'>
+                                </button>
+                            </div>
+                            <div class="general-nav__block">
+                                <button class="threads-menu _icon-threadsIcon" aria-label='All treads' type='menu'>All
+                                    threads</button>
+                            </div>
+                            <ul class="general-nav__block nav-list channels">
+                                <h2 class="general-nav__title nav-list__info">channels <span>3</span></h2>
+                                <li class="nav-list__elem channel">general</li>
+                                <li class="nav-list__elem channel">support</li>
+                                <li class="nav-list__elem channel">marketing</li>
+                            </ul>
+                            <ul class="general-nav__block nav-list friends">
+                                <h2 class="general-nav__title nav-list__info">friends <span>3</span></h2>
+                                <li class="nav-list__elem friend">
+                                    <img src="img/user1.jpg" alt="user"><span>Orlando Diggs</span>
+                                </li>
+                                <li class="nav-list__elem friend">
+                                    <img src="img/user1.jpg" alt="user"><span>Carmen Velasco</span>
+                                </li>
+                                <li class="nav-list__elem friend">
+                                    <img src="img/user1.jpg" alt="user"><span>Marie Jensen</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            @@include('_chat.html')
+            <section class='sidepanel'>
+                <div class="sidepanel__body">
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <section id="modal_1" class='modal-window'>
+        <div class="modal-window__body">
+            <div class="modal-window__content">
+                <button type='button' class="modal-closer">close me</button>
+
+                <form class="searchbar">
+                    <input class="searchbar__input" type='text' placeholder='input' required>
+                    <button aria-label="search" class="searchbar__submit" type='submit'>
+                        <img src="img/icons/loupe.svg" alt="search">
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+@@include('_scripts.html')
+
+</html>
