@@ -33,16 +33,20 @@ body
         background: $background
 
 .navigation
-    background: #000000
+    background: #25272A
     min-width: 350px
     width: 350px
-    
+    max-width: 350px
+
     color: #B5B5B5
     button
         color: #B5B5B5
+    a
+        color: #b5b5b5
 
     &__body
-        display: flex
+        display: grid
+        grid-template: 'el' 1fr / 1fr 4fr
         height: 100%
 
 .chats
@@ -50,20 +54,29 @@ body
     flex-flow: column wrap
     align-items: center
     justify-content: space-between
+
     padding: 15px 0px 15px 0px
+    background: #000
 
     &__body
         padding: 15px 15px 5px 15px
 
     &__chat-ref
         padding: 15px 0px 15px 0px
+        cursor: pointer
+
+        &:hover
+            img
+                box-shadow: 0 0 20px #9b9b9b94
+
         img
-            border-radius: 50%
+            @include size (40px,40px)
             filter: brightness(80%)
+            border-radius: 50%
 
         &.active
             position: relative
-            ::before
+            &::before
                 position: absolute
                 top: 50%
                 transform: translate(0,-50%)
@@ -75,14 +88,19 @@ body
                 background: gray
                 border-radius: 50%
             img
-                @include size (40px,40px)
                 filter: brightness(100%)
 
     &__add-chat
         @include size (41.5px,41.5px)
-        background: #3b3b3b
+        background: #292929
         border-radius: 50%
         position: relative
+
+        transition: all 0.2s ease
+        &:hover
+            background: #bb2323
+            &::before
+                color: #fff
 
         &:before
             position: absolute
@@ -94,26 +112,38 @@ body
 .general-nav
     flex: 1 0 auto
     background: #25272A
+    margin: 0px 10px 0px 0px
 
     &__body
-        padding: 35px 25px 35px 25px
+        padding: 35px 25px 10px 25px
 
     &__block
         padding: 0px 0px 15px 0px
+
         &:last-child
             padding-bottom: 0
+
+    &__main-block
+        display: flex
+        justify-content: space-between
+        align-items: flex-start
 
     &__title
         text-transform: uppercase
         display: flex
         justify-content: space-between
+        margin: 0px 0px 15px 0px
+        color: #919191
 
     &__settings
         &::before
             font-size: 16px
 
 .chat-users
+    display: inline-block
+
     &__info
+        font-size: 20px
         color: #fff
 
     .chat-user
@@ -125,24 +155,58 @@ body
     align-items: center
 
     font-size: 14px
+    margin: 15px 0px 15px 0px
+
+    &:hover
+        &::before
+            color: #fff
+
     &::before
+        transition: all 0.1s ease
         padding: 0px 10px 0px 0px
         font-size: 18px
 
 .nav-list
 
-    &__info
-
     &__elem
-        text-transform: none
+        a
+            display: block
+            padding: 10px 0px 10px 5%
+
+            transition: all 0.1s ease
+            &:hover
+                color: #fff
+                background: #3f3f3f
+                border-radius: 5px
 
 .channels
 
     .channel
+        a
+            &:before
+                content: '#'
+                padding: 0px 5px 0px 0px
 
 .friends
 
     .friend
+        margin: 0px 0px 5px 0px
+        &:last-child
+            margin-bottom: 0
+
+        a
+            display: flex
+            align-items: center
+            padding: 5px
+            width: 100%
+
+        span
+            padding: 0px 0px 0px 7px
+
+        &__image
+            @include size (32px,32px)
+            margin: 0px 7px 0px 7px
+            border-radius: 6px
 
 .profile
     position: absolute
@@ -158,6 +222,32 @@ body
 
     &__list
         flex-flow: column nowrap
+
+.status-ball
+    display: inline-block
+    @include size (6px,6px)
+    background: #666666
+    border-radius: 50%
+
+    &.active
+        background: #70CC16
+
+.scrollable
+    overflow-y: scroll
+
+    scrollbar-width: thin
+    scrollbar-color: #ffffff3f transparent
+
+    /* for Chrome/Edge/Safari */
+    &::-webkit-scrollbar
+        height: auto
+        width: 7px
+    &::-webkit-scrollbar-track
+        background: transparent
+    &::-webkit-scrollbar-thumb
+        background-color: transparent
+        border-radius: 3px
+        border: 6px solid #ffffff3f
 
 .modal-window
     position: fixed
