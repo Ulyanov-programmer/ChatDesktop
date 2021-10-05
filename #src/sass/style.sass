@@ -5,7 +5,7 @@ $background: #fff
 
 @import "nullStyle"
 @import "mixins"
-@import "chat"
+@import "messenger"
 @import "fonts"
 @import "iconFonts"
 
@@ -13,7 +13,7 @@ body
     height: 100%
     color: $mainFontColor
     font-family: $mainFontFamily
-    font-size: $mainFontSize + px
+    @include adaptive-property ('font-size',14, 12)
 
     overflow: hidden
 
@@ -50,15 +50,16 @@ body
 
 .chats
     display: flex
-    flex-flow: column wrap
+    flex-flow: column nowrap
     align-items: center
     justify-content: space-between
+    overflow-x: hidden
 
     padding: 15px 0px 15px 0px
     background: #000
 
     &__body
-        padding: 15px 15px 5px 15px
+        padding: 15px 15px 15px 15px
 
     &__chat-ref
         padding: 15px 0px 15px 0px
@@ -90,6 +91,7 @@ body
                 filter: brightness(100%)
 
     &__add-chat
+        min-height: 41.5px
         @include size (41.5px,41.5px)
         background: #292929
         border-radius: 50%
@@ -136,7 +138,7 @@ body
 
     &__settings
         &::before
-            font-size: 16px
+            @include adaptive-property ('font-size',22, 18)
 
 .chat-users
     display: inline-block
@@ -153,7 +155,7 @@ body
     justify-content: center
     align-items: center
 
-    font-size: 14px
+    @include adaptive-property ('font-size',14, 13)
     margin: 15px 0px 15px 0px
 
     &:hover
@@ -163,7 +165,7 @@ body
     &::before
         transition: all 0.1s ease
         padding: 0px 10px 0px 0px
-        font-size: 18px
+        @include adaptive-property ('font-size',20, 18)
 
 .nav-list
 

@@ -2,7 +2,7 @@
 
 .messenger
     background: #fff
-    flex: 0 1 auto
+    flex: 1 1 auto
     min-width: 580px
     color: #A4A4A4
 
@@ -21,6 +21,7 @@
         flex: 1 0 auto
         align-items: flex-end
         display: flex
+        flex-flow: column nowrap
 
     &__footer
 
@@ -54,7 +55,7 @@
 
         &:after
             position: absolute
-            font-size: 2px
+            font-size: 12px
             color: red
             content: '●'
 
@@ -88,9 +89,14 @@
     color: #A4A4A4
     padding: 0px 10px 0px 10px
 
+    &.active
+        &::before
+            color: #e7c300
+
 .chat
     width: 100%
-    height: 80vh
+    height: 200px
+    flex: 1 0 auto
     margin: 0px 5px 0px 0px
 
     scrollbar-width: thin
@@ -131,12 +137,62 @@
     &__main
 
     &__text
-        line-height: 20px
+        line-height: 1.5
 
     &__text-for-the-user
         color: #3577EF
 
     &__footer
+
+    &__image
+        position: relative
+        display: inline-block
+        padding: 10px 0px 10px 0px
+
+        &:hover
+            .message__add-smiles-block
+                visibility: visible
+                opacity: 1
+                pointer-events: all
+
+    &__add-smiles-block
+        visibility: hidden
+        opacity: 0
+        pointer-events: none
+        transition: all 0.2s ease
+        display: flex
+
+        z-index: 15
+        position: absolute
+
+        background: #fff
+        border-radius: 5px
+        box-shadow: 0px 2px 5px rgba(0,0,0,0.1)
+
+        text-align: center
+        bottom: 0
+        left: 50%
+        transform: translate(-50%, 50%)
+
+        span
+            display: inline-block
+            cursor: pointer
+            padding: 15px 15px 15px 15px
+
+            &:hover
+                background: #0000001c
+
+    &__image-smiles
+        position: absolute
+        bottom: 0
+        right: 0
+        transform: translate(50%,50%)
+        z-index: 3
+
+        background: #fff
+        border-radius: 5px
+        padding: 6px 6px 6px 6px
+        box-shadow: 0px 2px 5px rgba(0,0,0,0.1)
 
 .time-separator
     position: relative
@@ -165,7 +221,7 @@
     align-items: center
 
     &__files
-        font-size: 20px
+        @include adaptive-property ('font-size',22, 18)
 
     &__lable
 
@@ -174,7 +230,7 @@
 
     &__message
         flex: 1 0 auto
-        font-size: 14px
+        @include adaptive-property ('font-size',15, 13)
         padding: 5px 5px 5px 10px
 
         &:focus
@@ -186,12 +242,14 @@
 
     &__submit
         &::before
-            font-size: 20px
+            @include adaptive-property ('font-size',22, 18)
             color: #A4A4A4
 
     &__emoji
-        &:before
-            content: url('../img/icons/emoji.png')
+            background: url('../img/icons/emoji.png') no-repeat center / contain
+            display: block
+            @include adaptive-property ('width',22,18)
+            @include adaptive-property ('height',22,18)
 
 .action-menu
     position: relative
@@ -238,6 +296,9 @@
         display: grid
         grid-template: 'em em em' 1fr 'em em em' 1fr / 1fr 1fr 1fr
 
+    &__body
+        left: 0
+
     &__element
         padding: 8px 8px 8px 8px
 
@@ -261,6 +322,7 @@
         border-top-left-radius: 5px
         border-bottom-left-radius: 5px
         color: #A4A4A4
+        @include adaptive-property ('width',190,100)
 
         &::placeholder
             color: #A4A4A4
