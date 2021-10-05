@@ -1,199 +1,278 @@
 @import "mixins"
 
-
-.fixed-header
-    position: fixed
-    top: 0
-    left: 0
-    @include size(100%, 70px)
-
-.navmenu
-    height: 50px
-    @media (max-width: 600px)
-        display: none
+.messenger
+    background: #fff
+    flex: 0 1 auto
+    min-width: 580px
+    color: #A4A4A4
 
     &__body
         display: flex
         height: 100%
+        flex-flow: column nowrap
 
-    &__list
+    &__header
+        display: flex
+        justify-content: space-between
+
+    &__main
+        border-bottom: 1px solid #A4A4A4
+        border-top: 1px solid #A4A4A4
+        flex: 1 0 auto
+        align-items: flex-end
         display: flex
 
-        li
-            display: flex
-            justify-content: center
-            align-items: center
+    &__footer
 
-            padding: 0px 10px 0px 10px
+    &__block
+        padding: 25px 15px 25px 25px
 
-            cursor: pointer
-            transition: all 0.2s ease 0s
-
-            &:hover
-                background: #dddada62
-
-            a
-                display: flex
-                justify-content: center
-                align-items: center
-
-                color: white
-                @include size(100%, 100%)
-
-    .submenu-open-button
-        position: relative
+    &__header-block
         display: flex
+        flex-flow: row nowrap
+        align-items: center
 
-        &::after
-            display: inline-block
-            content: ""
-            @include size(4px, 4px)
+    h1
+        font-family: Lato bold
+        font-size: 20px
+        color: #000
+        &:before
+            content: '#'
 
-            border-top: 1.5px solid rgb(255, 255, 255)
-            border-right: 1.5px solid rgb(255, 255, 255)
+.people-counter
+    padding: 0px 20px 0px 20px
+    &::before
+        color: #A4A4A4
+        padding: 0px 5px 0px 0px
 
-            transform: translate(5px,0) rotate(135deg)
-            transition: all 0.3s ease 0s
-
-        &.active
-            &::after
-                transform: translate(5px,0) rotate(-45deg)
-
-    &__submenu
-        z-index: 1
-        position: absolute
-        display: none
-        height: 50px
-
-        background: #818181
-
-        &.show
-            position: absolute
-            top: 100%
-            right: 0
-            display: flex
-
-        &.navmenu__list
-            li
-                &:hover
-                    filter: brightness(115%)
-
-                // a {
-                // }
-
-.fullscreen-navmenu
-    position: fixed
-    top: 0
-    right: -100%
-    z-index: -1
-    @include size (100%,100%)
-    color: #fff
-
-    display: flex
-    flex-flow: column nowrap
-
-    background: #000000ad
-    transition: all 0.5s ease
-
-    @media (min-width: 600px)
-        display: none
+.notifications
+    padding: 0px 20px 0px 20px
+    font-size: 15px
 
     &.active
-        right: 0
+        position: relative
+
+        &:after
+            position: absolute
+            font-size: 2px
+            color: red
+            content: '●'
+
+            top: 0%
+            left: 67%
+            transform: translate(-50%, -50%)
 
     &__body
-        display: flex
-        flex-flow: column nowrap
-        align-items: center
-        overflow: auto
-        &:before
-            position: relative
-            top: 0
-            left: 0
-            content: url('.')
-            flex: 0 0 70px
 
-    ul
-        overflow: auto
+    &__element
+        display: block
+        padding: 10px 10px 10px 10px
+        background: #ebebeb
+
+.chat-settings
+    padding: 0px 20px 0px 20px
+
+    &__body
+
+    &__element
+        display: block
+        padding: 10px 10px 10px 10px
+        background: #ebebeb
+
+.chat-button
+    cursor: pointer
+    &:hover
+        color: #000
+
+.favorites
+    color: #A4A4A4
+    padding: 0px 10px 0px 10px
+
+.chat
+    width: 100%
+    height: 80vh
+    margin: 0px 5px 0px 0px
+
+    scrollbar-width: thin
+    scrollbar-color: #0000002a transparent !important
+
+    &::-webkit-scrollbar-thumb
+        border: 6px solid #0000002a !important
+
+    &__body
+        padding: 20px 20px 20px 20px
+
+.message
+    display: flex
+    color: #000
+
+    &__body
+        padding: 0px 0px 10px 10px
+
+    &__author-image
+        img
+            border-radius: 6px
+
+    &__header
+        padding: 0px 0px 5px 0px
+
+    &__author-name
+        font-family: Lato bold
+
+    &__date
+        padding: 0px 0px 0px 7px
+        color: #A4A4A4
+
+    &__day-time
+        text-transform: uppercase
+        padding: 0px 0px 0px 3px
+        color: #A4A4A4
+
+    &__main
+
+    &__text
+        line-height: 20px
+
+    &__text-for-the-user
+        color: #3577EF
+
+    &__footer
+
+.time-separator
+    position: relative
+    color: #8D8D8D
+    padding: 15px 0px 15px 0px
+
+    p
+        position: absolute
+        top: 50%
+        left: 50%
+        transform: translate(-50%, -50%)
+        z-index: 2
+        background: #fff
+        padding: 0px 15px 0px 15px
+
+    span
+        position: relative
+        display: block
+        z-index: 0
         width: 100%
-        li
-            text-align: center
-            padding: 25px 0px 25px 0px
-            margin: 0 auto
+        height: 2px
+        background: #dad8d8
 
-            width: 50%
+.action-block
+    display: flex
+    align-items: center
+
+    &__files
+        font-size: 20px
+
+    &__lable
+
+    &__labled-input
+        display: none
+
+    &__message
+        flex: 1 0 auto
+        font-size: 14px
+        padding: 5px 5px 5px 10px
+
+        &:focus
+            &::placeholder
+                opacity: 0
+
+        &::placeholder
+            transition: all 0.2s ease
+
+    &__submit
+        &::before
+            font-size: 20px
+            color: #A4A4A4
+
+    &__emoji
+        &:before
+            content: url('../img/icons/emoji.png')
+
+.action-menu
+    position: relative
+    padding: 0px 20px 0px 20px
+
+    &:hover
+        .action-menu__body
+            opacity: 1
+            visibility: visible
+            pointer-events: all
+
+    &__body
+        opacity: 0
+        visibility: hidden
+        pointer-events: none
+
+        position: absolute
+        bottom: 100%
+        left: 50%
+        transform: translate(-50%, 0%)
+        text-align: center
+        padding: 0px 0px 20px 0px
+
+        transition: all 0.2s ease
+
+    &__element
+        padding: 10px 5px 10px 5px
+        background: #ebebeb
+        *
             cursor: pointer
-            border-bottom: 1px solid #fff
-            &:last-child
-                border: none
 
-            &:hover
-                color: #beafaf
-            a
-                color: #fff
+        &:hover
+            text-decoration: underline
+
+    &__reverse
+        .action-menu__body
+            top: 50%
+            padding: 20px 0px 0px 0px
+
+.action-grid
+
+    &__wrapper
+        background: #ebebeb
+        display: grid
+        grid-template: 'em em em' 1fr 'em em em' 1fr / 1fr 1fr 1fr
+
+    &__element
+        padding: 8px 8px 8px 8px
+
+        &:hover
+            background: #ffffff67
 
 .searchbar
     display: flex
-    // ? Reverse elements
-    // flex-flow: row-reverse nowrap
 
     background: #fff
     height: 30px
+
+    border: 1px solid #A4A4A4
+    border-radius: 5px
 
     *
         height: 100%
 
     &__input
         padding: 0px 0px 0px 10px
-        &:focus
-            background: #d8d5d5
+        border-top-left-radius: 5px
+        border-bottom-left-radius: 5px
+        color: #A4A4A4
+
+        &::placeholder
+            color: #A4A4A4
 
     &__submit
+        display: flex
+        align-items: center
         padding: 0px 10px 0px 10px
         transition: all 0.3s ease
 
+        &:before
+            color: #A4A4A4
         &:hover
-            background: #acabab
-
-        img
-            @include size (16px,16px)
-
-.header__burger
-    display: none
-    border-radius: 0px
-    background-color: transparent
-
-    @media (max-width: 600px)
-        z-index: 5
-        display: flex
-        justify-content: center
-        align-items: center
-
-        width: 40px
-        height: 20px
-
-        border-top: 0.2em solid black
-        border-bottom: 0.2em solid black
-
-        cursor: pointer
-        transition: all 0.5s
-
-        span
-            height: 0.18em
-            width: 100%
-            background-color: #000
-            transition: all 0.5s
-
-    &.active
-        border-color: #fff
-        transform: rotateZ(450deg)
-        span
-            background-color: #fff
-
-.logo
-    z-index: 10
-    height: 50px
-
-    img
-        min-width: 100%
-        height: 100%
+            &:before
+                color: #000
