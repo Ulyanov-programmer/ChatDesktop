@@ -78,14 +78,14 @@
                                 <li class="nav-list__elem friend">
                                     <a href="#">
                                         <div class="status-ball active"></div>
-                                        <img class="friend__image" src="img/user1.jpg" alt="user">
+                                        <img class="friend__image" src="img/user2.jpg" alt="user">
                                         <span>Orlando Diggs</span>
                                     </a>
                                 </li>
                                 <li class="nav-list__elem friend">
                                     <a href="#">
                                         <div class="status-ball active"></div>
-                                        <img class="friend__image" src="img/user1.jpg" alt="user">
+                                        <img class="friend__image" src="img/user3.jpg" alt="user">
                                         <span>Orlando Diggs</span>
                                     </a>
                                 </li>
@@ -166,7 +166,7 @@
             </section>
             @@include('_messenger.html')
 
-            <section class='sidepanel'>
+            <section class='sidepanel scrollable'>
                 <div class="sidepanel__body">
                     <div class="profile">
                         <div class="profile__image">
@@ -195,8 +195,13 @@
                             </div>
                             <div class="profile__actions">
                                 <button class="send-message-btn" aria-label='message' type='button'>Message</button>
-                                <div class="profile__multiple-actions">
-                                    
+                                <div class="profile__multiple-actions submenu-open-button">
+                                    <ul class="">
+                                        <li>someAction</li>
+                                        <li>someAction</li>
+                                        <li>someAction</li>
+                                    </ul>
+                                    <img src="img/icons/arrowMore-actions.svg" alt="moreActions">
                                 </div>
                             </div>
                             <div class="profile__info-block">
@@ -231,6 +236,7 @@
                                     <span id="profile-time">2:21 PM Local time</span>
                                 </p>
                             </div>
+                            <button id="profile-close" class="profile__close" aria-label='closeProfile' type='button'></button>
                         </div>
                     </div>
                 </div>

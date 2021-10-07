@@ -107,7 +107,7 @@ doc.addEventListener('keydown', (key) => {
 
 
 function showOrHideSubmenu(e) {
-    const menuButton = e.target;
+    const menuButton = e.currentTarget;
     const allSubmenu = doc.querySelectorAll('.navmenu__submenu');
     const allMenuButtons = doc.querySelectorAll('.submenu-open-button');
 
@@ -144,6 +144,15 @@ chatInput.addEventListener('focus', () => showSubmitButton(null, false));
 chatInput.addEventListener('blur', () => showSubmitButton(null, true));
 
 const submitButton = document.querySelector('#chat-submit');
+
+function closeSidepanel(e) {
+    sidepanel.remove();
+}
+const sidepanel = document.querySelector('.sidepanel');
+
+const closeSidepanelButton = document.querySelector('#profile-close');
+closeSidepanelButton.addEventListener("click", closeSidepanel);
+
 
 doc.addEventListener('keydown', (key) => {
     let chatBody = doc.querySelector('.chat__body');

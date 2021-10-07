@@ -1,7 +1,10 @@
-# Default Project
-Default Project - my standard project to start any layout. It will be gradually updated and supplemented, this is not the final version.
+# Chat Desktop
+Chat Desktop - is a website layout created for MacOS, however, it has been adapted for all modern browsers.
+Stretchable (from to 1020 pixels) design.
 
 <!-- Ctrl + Shift + V => view this file in VS Code -->
+
+<img src="readmeFiles/preview.png" width=100% />
 
 <details>
  <summary>RU Как запустить?</summary>

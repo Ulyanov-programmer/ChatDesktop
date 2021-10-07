@@ -22,6 +22,7 @@ body
 
 .main
     width: 100%
+    overflow: hidden
 
     background: $background
 
@@ -33,9 +34,8 @@ body
 
 .navigation
     background: #25272A
-    min-width: 350px
-    width: 350px
-    max-width: 350px
+    min-width: 290px
+    flex: 1 1 20%
 
     color: #B5B5B5
     button
@@ -55,6 +55,7 @@ body
     justify-content: space-between
     overflow-x: hidden
 
+    margin: 0px -10px 0px 0px
     padding: 15px 0px 15px 0px
     background: #000
 
@@ -80,7 +81,7 @@ body
                 position: absolute
                 top: 50%
                 transform: translate(0,-50%)
-                left: -18px
+                left: -10px
                 content: ''
                 width: 7px
                 height: 7px
@@ -253,6 +254,9 @@ body
 
 .sidepanel
     background: #c9cfd4
+    flex: 1 1 15%
+    overflow: auto
+    margin: 0px -7px 0px 0px
 
     &__body
         display: flex
@@ -263,13 +267,19 @@ body
         flex-flow: column nowrap
 
 .profile
+    width: 100%
     color: #5F6164
 
     &__body
+        position: relative
         padding: 20px 20px 20px 20px
 
     &__image
-        object-fit: contain
+        width: 100%
+
+        img
+            @include size (100%,100%)
+            object-fit: contain
 
     &__name
         display: block
@@ -282,14 +292,69 @@ body
         display: block
 
     &__socials
+        display: flex
+        flex-flow: row wrap
+        margin: 0px -5px 0px -5px
+
         padding: 10px 0px 10px 0px
+
         img
-            padding: 0px 3px 0px 3px
+            padding: 5px 5px 5px 5px
 
     &__actions
+        display: flex
+        flex-flow: row wrap
+        justify-content: space-between
         padding: 10px 0px 20px 0px
 
     &__multiple-actions
+        position: relative
+        cursor: pointer
+
+        background: #3577EF
+        border-radius: 5px
+        padding: 5px 5px 5px 5px
+
+        width: 20%
+        min-width: 27px
+
+        @media (max-width: 1160px)
+            margin: 5px 0px 5px 0px
+
+        &.active
+            ul
+                visibility: visible
+                opacity: 1
+                pointer-events: all
+            img
+                transform: translate(-50%, -50%) rotate(180deg)
+
+        img
+            position: relative
+            top: 50%
+            left: 50%
+            transform: translate(-50%, -50%)
+            @include size (50%,50%)
+            transition: all 0.2s ease
+
+            &::selection
+                color: none
+                background: none
+
+        ul
+            position: absolute
+            top: 150%
+            right: 0
+            visibility: hidden
+            opacity: 0
+            pointer-events: none
+
+            transition: all 0.2s ease
+
+            li
+                background: #6e6e6e
+                color: #fff
+                padding: 5px 5px 5px 5px
 
     &__info-block
         padding: 0px 0px 10px 0px
@@ -303,12 +368,38 @@ body
     &__info
         color: #000
 
-.social
+    &__close
+        position: absolute
+        bottom: 5%
+        right: 10%
+        display: inline-block
+        padding: 5px 5px 5px 5px
+
+        @include size (10px,10px)
+        border-top: 2px solid #6e6e6e
+        border-right: 2px solid #6e6e6e
+        transform: rotate(45deg) translateY(50%)
+
+        &:hover
+            border-top: 3px solid #575454
+            border-right: 3px solid #575454
 
 .send-message-btn
     background: #3577EF
     border-radius: 5px
-    padding: 5px 40px 5px 40px
+    padding: 5px 5px 5px 5px
+    margin: 0px 5px 0px 0px
+    width: 70%
+
+    transition: all 0.2s ease
+
+    box-shadow: 0 2px 0px rgba(0,0,0,0.2)
+
+    &:active
+        transform: translate(0,2px)
+
+    @media (max-width: 1160px)
+        width: 100%
 
 .status-ball
     display: inline-block

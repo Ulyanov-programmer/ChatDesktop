@@ -2,7 +2,7 @@
 
 .messenger
     background: #fff
-    flex: 1 1 auto
+    flex: 1 1 70%
     min-width: 580px
     color: #A4A4A4
 
@@ -73,7 +73,7 @@
 .chat-settings
 
     .action-menu__body
-        left: 0
+        left: -15%
 
     &__element
         display: block
@@ -116,8 +116,11 @@
         padding: 0px 0px 10px 10px
 
     &__author-image
+
         img
+            display: block
             border-radius: 6px
+            @include size (32px,32px)
 
     &__header
         padding: 0px 0px 5px 0px
@@ -143,11 +146,19 @@
         color: #3577EF
 
     &__footer
+        margin: 10px 0px 10px 0px
 
     &__image
-        position: relative
         display: inline-block
-        padding: 10px 0px 10px 0px
+        position: relative
+        padding: 0px 50% 35% 0px
+
+        img
+            position: absolute
+            top: 0
+            left: 0
+            @include size (100%,100%)
+            object-fit: contain
 
         &:hover
             .message__add-smiles-block
@@ -232,6 +243,7 @@
     &__micro
         @include adaptive-property ('font-size',22, 18)
         padding: 0 10px 0 10px
+        transform: translate(0,7%)
         color: #A4A4A4
 
     &__message
@@ -240,6 +252,7 @@
         font-family: Lato
         padding: 7px 5px 7px 10px
         overflow: hidden
+        resize: none
 
         &:focus
             &::placeholder

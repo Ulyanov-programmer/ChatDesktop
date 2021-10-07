@@ -96,8 +96,8 @@ h6 {
 .messenger {
   background: #fff;
   -webkit-box-flex: 1;
-      -ms-flex: 1 1 auto;
-          flex: 1 1 auto;
+      -ms-flex: 1 1 70%;
+          flex: 1 1 70%;
   min-width: 580px;
   color: #A4A4A4;
 }
@@ -204,7 +204,7 @@ h6 {
 }
 
 .chat-settings .action-menu__body {
-  left: 0;
+  left: -15%;
 }
 
 .chat-settings__element {
@@ -261,7 +261,10 @@ h6 {
 }
 
 .message__author-image img {
+  display: block;
   border-radius: 6px;
+  width: 32px;
+  height: 32px;
 }
 
 .message__header {
@@ -291,10 +294,24 @@ h6 {
   color: #3577EF;
 }
 
+.message__footer {
+  margin: 10px 0px 10px 0px;
+}
+
 .message__image {
-  position: relative;
   display: inline-block;
-  padding: 10px 0px 10px 0px;
+  position: relative;
+  padding: 0px 50% 35% 0px;
+}
+
+.message__image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 .message__image:hover .message__add-smiles-block {
@@ -400,6 +417,9 @@ h6 {
 .action-block__micro {
   font-size: calc(18px + (22 - 18) * ((100vw - 320px) / (1000 - 320)));
   padding: 0 10px 0 10px;
+  -webkit-transform: translate(0, 7%);
+      -ms-transform: translate(0, 7%);
+          transform: translate(0, 7%);
   color: #A4A4A4;
 }
 
@@ -411,6 +431,7 @@ h6 {
   font-family: Lato;
   padding: 7px 5px 7px 10px;
   overflow: hidden;
+  resize: none;
 }
 
 .action-block__message:focus::-webkit-input-placeholder {
@@ -729,6 +750,7 @@ body button {
 
 .main {
   width: 100%;
+  overflow: hidden;
   background: #fff;
 }
 
@@ -745,9 +767,10 @@ body button {
 
 .navigation {
   background: #25272A;
-  min-width: 350px;
-  width: 350px;
-  max-width: 350px;
+  min-width: 290px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 20%;
+          flex: 1 1 20%;
   color: #B5B5B5;
 }
 
@@ -780,6 +803,7 @@ body button {
       -ms-flex-pack: justify;
           justify-content: space-between;
   overflow-x: hidden;
+  margin: 0px -10px 0px 0px;
   padding: 15px 0px 15px 0px;
   background: #000;
 }
@@ -816,7 +840,7 @@ body button {
   -webkit-transform: translate(0, -50%);
       -ms-transform: translate(0, -50%);
           transform: translate(0, -50%);
-  left: -18px;
+  left: -10px;
   content: '';
   width: 7px;
   height: 7px;
@@ -1049,6 +1073,11 @@ body button {
 
 .sidepanel {
   background: #c9cfd4;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 15%;
+          flex: 1 1 15%;
+  overflow: auto;
+  margin: 0px -7px 0px 0px;
 }
 
 .sidepanel__body {
@@ -1071,14 +1100,22 @@ body button {
 }
 
 .profile {
+  width: 100%;
   color: #5F6164;
 }
 
 .profile__body {
+  position: relative;
   padding: 20px 20px 20px 20px;
 }
 
 .profile__image {
+  width: 100%;
+}
+
+.profile__image img {
+  width: 100%;
+  height: 100%;
   -o-object-fit: contain;
      object-fit: contain;
 }
@@ -1096,15 +1133,97 @@ body button {
 }
 
 .profile__socials {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  margin: 0px -5px 0px -5px;
   padding: 10px 0px 10px 0px;
 }
 
 .profile__socials img {
-  padding: 0px 3px 0px 3px;
+  padding: 5px 5px 5px 5px;
 }
 
 .profile__actions {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 10px 0px 20px 0px;
+}
+
+.profile__multiple-actions {
+  position: relative;
+  cursor: pointer;
+  background: #3577EF;
+  border-radius: 5px;
+  padding: 5px 5px 5px 5px;
+  width: 20%;
+  min-width: 27px;
+}
+
+.profile__multiple-actions.active ul {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: all;
+}
+
+.profile__multiple-actions.active img {
+  -webkit-transform: translate(-50%, -50%) rotate(180deg);
+      -ms-transform: translate(-50%, -50%) rotate(180deg);
+          transform: translate(-50%, -50%) rotate(180deg);
+}
+
+.profile__multiple-actions img {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 50%;
+  height: 50%;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.profile__multiple-actions img::-moz-selection {
+  color: none;
+  background: none;
+}
+
+.profile__multiple-actions img::selection {
+  color: none;
+  background: none;
+}
+
+.profile__multiple-actions ul {
+  position: absolute;
+  top: 150%;
+  right: 0;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.profile__multiple-actions ul li {
+  background: #6e6e6e;
+  color: #fff;
+  padding: 5px 5px 5px 5px;
 }
 
 .profile__info-block {
@@ -1124,10 +1243,43 @@ body button {
   color: #000;
 }
 
+.profile__close {
+  position: absolute;
+  bottom: 5%;
+  right: 10%;
+  display: inline-block;
+  padding: 5px 5px 5px 5px;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #6e6e6e;
+  border-right: 2px solid #6e6e6e;
+  -webkit-transform: rotate(45deg) translateY(50%);
+      -ms-transform: rotate(45deg) translateY(50%);
+          transform: rotate(45deg) translateY(50%);
+}
+
+.profile__close:hover {
+  border-top: 3px solid #575454;
+  border-right: 3px solid #575454;
+}
+
 .send-message-btn {
   background: #3577EF;
   border-radius: 5px;
-  padding: 5px 40px 5px 40px;
+  padding: 5px 5px 5px 5px;
+  margin: 0px 5px 0px 0px;
+  width: 70%;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+  -webkit-box-shadow: 0 2px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+.send-message-btn:active {
+  -webkit-transform: translate(0, 2px);
+      -ms-transform: translate(0, 2px);
+          transform: translate(0, 2px);
 }
 
 .status-ball {
@@ -1203,6 +1355,16 @@ body button {
   background: #000;
   text-align: center;
   color: #fff;
+}
+
+@media (max-width: 1160px) {
+  .profile__multiple-actions {
+    margin: 5px 0px 5px 0px;
+  }
+
+  .send-message-btn {
+    width: 100%;
+  }
 }
 
 @media (min-width: 426px) and (max-width: 768px) {
