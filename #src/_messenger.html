@@ -162,20 +162,23 @@
                 <div class="chat-button action-block__list action-block__files  _icon-attachFile action-menu">
                     <div class="action-menu__body">
                         <div class="action-menu__element">
-                            <label for="input-image" class="action-block__lable">Image</label>
-                            <input class="action-block__labled-input" id="input-image" type="file" accept="image/*">
+                            <label for="chat-image" class="action-block__lable">Image</label>
+                            <input class="action-block__labled-input" id="chat-image" type="file" accept="image/*">
                         </div>
                         <div class="action-menu__element">
-                            <label for="input-doc" class="action-block__lable">Document</label>
-                            <input class="action-block__labled-input" id="input-doc" type="file" accept=".doc">
+                            <label for="chat-doc" class="action-block__lable">Document</label>
+                            <input class="action-block__labled-input" id="chat-doc" type="file" accept=".doc">
                         </div>
                     </div>
                 </div>
+                <button id="chat-micro" class="action-block__micro _icon-micro" aria-label='micro'
+                    type='button'></button>
 
-                <input class="action-block__message" id="input-message" type='text' placeholder='Message in #general'
-                    required>
+                <textarea id="chat-text" class="action-block__message" id="input-message" type='text'
+                    placeholder='Message in #general' cols="1" rows="1" required></textarea>
 
-                <button class="_icon-submit action-block__submit" aria-label='submit' type='submit'>submit</button>
+                <button id="chat-submit" class="_icon-submit action-block__submit unactive" aria-label='submit'
+                    type='submit'>submit</button>
 
                 <div class="chat-button action-block__emoji action-menu action-grid">
                     <div class="action-menu__body action-grid__body">

@@ -141,14 +141,56 @@ body
             @include adaptive-property ('font-size',22, 18)
 
 .chat-users
+    position: absolute
     display: inline-block
+    top: 150%
+    left: 0
+    background: #919191
+    color: #000
+    max-width: 100px
 
-    &__info
+    overflow: hidden
+    visibility: hidden
+    opacity: 0
+    pointer-events: none
+    transition: all 0.2s ease
+
+    &.show
+        overflow: auto
+        visibility: visible
+        opacity: 1
+        pointer-events: all
+
+    &__show-button
+        cursor: pointer
+        position: relative
         font-size: 20px
         color: #fff
 
+        &.active
+            &:after
+                margin: 3px 0px 0px 7px
+                transform: rotate(-45deg)
+
+        &:after
+            content: ''
+            display: inline-block
+            margin: 0px 0px 0px 10px
+            padding: 4px 4px 4px 4px
+
+            border-top: 2px solid #919191
+            border-right: 2px solid #919191
+            transform: rotate(135deg) translate(0, 50%)
+
+            transition: all 0.2s ease
+
     .chat-user
-        display: none
+        padding: 10px 10px 10px 10px
+        transition: all 0.2s ease
+
+        &:hover
+            background: #444444
+            color: #fff
 
 .threads-menu
     display: flex
@@ -209,20 +251,64 @@ body
             margin: 0px 7px 0px 7px
             border-radius: 6px
 
-.profile
-    position: absolute
-    left: 10%
-    top: 0
-    @include size (50px, 100%)
+.sidepanel
+    background: #c9cfd4
 
     &__body
         display: flex
         justify-content: center
         align-items: center
-        @include size (50px, 100%)
 
     &__list
         flex-flow: column nowrap
+
+.profile
+    color: #5F6164
+
+    &__body
+        padding: 20px 20px 20px 20px
+
+    &__image
+        object-fit: contain
+
+    &__name
+        display: block
+        padding: 0px 0px 5px 0px
+        color: #000
+        font-family: Lato bold
+        @include adaptive-property ('font-size',16, 14)
+
+    &__status
+        display: block
+
+    &__socials
+        padding: 10px 0px 10px 0px
+        img
+            padding: 0px 3px 0px 3px
+
+    &__actions
+        padding: 10px 0px 20px 0px
+
+    &__multiple-actions
+
+    &__info-block
+        padding: 0px 0px 10px 0px
+        &:last-child
+            padding-bottom: 0
+
+    &__info-type
+        display: inline-block
+        padding: 0px 0px 5px 0px
+
+    &__info
+        color: #000
+
+.social
+
+.send-message-btn
+    background: #3577EF
+    border-radius: 5px
+    padding: 5px 40px 5px 40px
 
 .status-ball
     display: inline-block
@@ -264,7 +350,7 @@ body
     transition: all 0.5s ease
 
     &.active
-        overflow-y: scroll
+        overflow-y: auto
         opacity: 1
         pointer-events: all
 
@@ -273,3 +359,8 @@ body
         height: 100%
         justify-content: center
         align-items: center
+
+    &__content
+        background: #000
+        text-align: center
+        color: #fff
